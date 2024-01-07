@@ -33,7 +33,7 @@ function App() {
       <div className="pt-20">
         <div className="mx-auto">
           <Slider {...settings} className=''>
-            {[...Array(5)].map(((t,i)=> <div key={i}>
+            {[...Array(5)].map(((_,i)=> <div key={i}>
               <img src="/img/banner.png" alt="" className='max-w-full object-cover object-center' />
             </div>))}
           </Slider>
