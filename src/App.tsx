@@ -26,8 +26,8 @@ function App() {
   ]
   return (
     <div className="max-w-full overflow-hidden bg-[url('/img/bg.png')] bg-fixed bg-top bg-no-repeat">
-      <div className="fixed top-0 lef-0 z-30 w-full bg-gradient-to-b from-black to-transparent h-48">
-        <img src="/img/logo.png" className='h-full m-4' alt="" />
+      <div className="fixed top-0 lef-0 z-30 w-full bg-gradient-to-b from-black to-transparent h-16 sm:h-48">
+        <img src="/img/logo.png" className='h-full m-4 animate-pulse' alt="" />
       </div>
 
       <div className="pt-20">
@@ -39,28 +39,30 @@ function App() {
           </Slider>
         </div>
 
-        <div className="container rounded-xl mx-auto relative h-[580px] mt-48">
-          <img src="/img/girl01.png" className="absolute h-[700px] right-0 bottom-0 -mr-48 z-10" alt="" />
-          <img src="/img/girl02.png" className="absolute  h-[700px] left-0 bottom-0 z-10 -ml-32" alt="" />
-          <div className="w-[800px] mx-auto py-6 px-12 bg-gradient-to-b from-black/50 to-transparent rounded-xl text-lg min-h-[600px]">
+        <div className="container mx-auto relative min-h-[300px] md:h-[580px] px-4 mt-8 sm:mt-48">
+          <img src="/img/girl01.png" className="hidden sm:block absolute sm:h-[400px] md:h-[700px] right-0 bottom-0 -mr-40 z-10" alt="" />
+          <img src="/img/girl02.png" className="hidden sm:block absolute sm:h-[400px] md:h-[700px] left-0 bottom-0 z-10 -ml-24" alt="" />
+          <div className="md:w-[800px] mx-auto p-4 sm:py-6 sm:px-12 bg-gradient-to-b from-black/70 to-transparent rounded-xl text-sm sm:text-lg sm:min-h-full relative z-10">
             {news.map((t, i)=> (<div key={i} className='flex border-b last-of-type:border-none border-b-slate-500 py-2'>
-              <div className="w-40">【{typeMap[t.type]}】</div>
+              <div className="md:w-40">【{typeMap[t.type]}】</div>
               <div className="truncate flex-1">{t.title}</div>
-              <div className="w-48">{t.date}</div>
+              <div className="md:w-48">{t.date}</div>
 
             </div>))}
           </div>
         </div>
 
-        <div className="bg-slate-800 mt-48 py-4">
-          <div className="w-max mx-auto flex items-center gap-x-6">
-            <div className="">
+        <div className="bg-slate-800 mt-8 sm:mt-48 py-4">
+          <div className="sm:w-max mx-auto flex items-center gap-x-6">
+            <div className="hidden sm:block">
               <img src="/img/cr_grading.png" className='h-max' alt="" />
             </div>
-            <div className="text-slate-400 text-sm">
-            ※ 遊戲為免費使用，遊戲內另提供購買虛擬遊戲幣、物品等付費服務。請注意遊戲時間，避免沉迷。<br/>
-            ※ 本遊戲提供之機會中獎商品，消費者購買或參加活動不代表即可獲得特定商品。<br/>
-            ※ 本遊戲情節涉及棋牌益智及娛樂，非現金交易賭博，使用者請勿進行非法遊戲幣交易。
+            <div className="text-slate-400 text-xs sm:text-sm p-2 pl-5">
+              <ul className='list-disc'>
+                <li>遊戲為免費使用，遊戲內另提供購買虛擬遊戲幣、物品等付費服務。請注意遊戲時間，避免沉迷。</li>
+                <li>本遊戲提供之機會中獎商品，消費者購買或參加活動不代表即可獲得特定商品。</li>
+                <li>本遊戲情節涉及棋牌益智及娛樂，非現金交易賭博，使用者請勿進行非法遊戲幣交易。</li>
+              </ul>
             </div>
           </div>
         </div>
