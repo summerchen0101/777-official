@@ -34,7 +34,7 @@ function App() {
         <div className="mx-auto">
           <Slider {...settings} className=''>
             {[...Array(5)].map(((_,i)=> <div key={i}>
-              <img src="/img/banner.png" alt="" className='max-w-full object-cover object-center' />
+              <img src="/img/banner.png" alt="" className='max-w-full object-cover object-center mx-auto' />
             </div>))}
           </Slider>
         </div>
