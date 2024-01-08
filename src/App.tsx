@@ -26,8 +26,8 @@ function App() {
   ]
   return (
     <div className="max-w-full overflow-hidden bg-[url('/img/bg.png')] bg-fixed bg-top bg-no-repeat">
-      <div className="fixed top-0 lef-0 z-30 w-full bg-gradient-to-b from-black to-transparent h-16 sm:h-48">
-        <img src="/img/logo.png" className='h-full m-4 animate-pulse' alt="" />
+      <div className="fixed top-0 lef-0 z-30 w-full bg-gradient-to-b from-black to-transparent">
+        <img src="/img/logo.png" className='h-16 sm:h-48 m-4' alt="" />
       </div>
 
       <div className="pt-20">
@@ -42,7 +42,7 @@ function App() {
         <div className="container mx-auto relative min-h-[300px] md:h-[580px] px-4 mt-8 sm:mt-48">
           <img src="/img/girl01.png" className="hidden sm:block absolute sm:h-[400px] md:h-[700px] right-0 bottom-0 -mr-40 z-10" alt="" />
           <img src="/img/girl02.png" className="hidden sm:block absolute sm:h-[400px] md:h-[700px] left-0 bottom-0 z-10 -ml-24" alt="" />
-          <div className="md:w-[800px] mx-auto p-4 sm:py-6 sm:px-12 bg-gradient-to-b from-black/70 to-transparent rounded-xl text-sm sm:text-lg sm:min-h-full relative z-10">
+          <div className="md:w-[800px] mx-auto p-4 sm:py-6 sm:px-12 bg-gradient-to-b from-black/70 to-transparent rounded-xl text-sm sm:text-lg sm:min-h-full relative z-10 text-slate-200">
             {news.map((t, i)=> (<div key={i} className='flex border-b last-of-type:border-none border-b-slate-500 py-2'>
               <div className="md:w-40">【{typeMap[t.type]}】</div>
               <div className="truncate flex-1">{t.title}</div>
