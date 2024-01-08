@@ -1,7 +1,7 @@
 
-import { useRef, useState } from 'react';
-import './App.css'
-import Slider, {Settings} from "react-slick";
+import { useState } from 'react';
+import Slider, { Settings } from "react-slick";
+import './App.css';
 
 interface News {
   date: string
