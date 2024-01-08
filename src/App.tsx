@@ -39,7 +39,7 @@ function App() {
           </Slider>
         </div>
 
-        <div className="container mx-auto relative min-h-[300px] md:h-[580px] px-4 mt-8 sm:mt-48">
+        <div className="container mx-auto relative md:h-[580px] px-4 mt-8 sm:mt-48">
           <img src="/img/girl01.png" className="hidden sm:block absolute sm:h-[400px] md:h-[700px] right-0 bottom-0 -mr-40 z-10" alt="" />
           <img src="/img/girl02.png" className="hidden sm:block absolute sm:h-[400px] md:h-[700px] left-0 bottom-0 z-10 -ml-24" alt="" />
           <div className="md:w-[800px] mx-auto p-4 sm:py-6 sm:px-12 bg-gradient-to-b from-black/70 to-transparent rounded-xl text-sm sm:text-lg sm:min-h-full relative z-10 text-slate-200">
