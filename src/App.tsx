@@ -1,6 +1,14 @@
 
+import { useRef, useState } from 'react';
 import './App.css'
 import Slider, {Settings} from "react-slick";
+
+interface News {
+  date: string
+  title: string
+  content: string
+  type: number
+}
 
 function App() {
   const settings: Settings = {
@@ -17,13 +25,23 @@ function App() {
     2: "系統",
     3: "活動",
   }
-  const news = [
-    {date: '2024-01-03', title: "測試的標題測試的標題測試的標題", type: 1},
-    {date: '2024-01-02', title: "測試的標題測試的標題測試的標題", type: 2},
-    {date: '2024-01-02', title: "測試的標題測試的標題測試的標題", type: 2},
-    {date: '2024-01-01', title: "測試的標題測試的標題測試的標題", type: 3},
-    {date: '2024-01-01', title: "測試的標題測試的標題測試的標題", type: 3},
+
+  const news: News[] = [
+    {date: '2024-01-03', title: "測試的標題測試的標題測試的標題", content: "...", type: 1},
+    {date: '2024-01-02', title: "測試的標題測試的標題測試的標題", content: "...", type: 2},
+    {date: '2024-01-02', title: "測試的標題測試的標題測試的標題", content: "...", type: 2},
+    {date: '2024-01-01', title: "測試的標題測試的標題測試的標題", content: "...", type: 3},
+    {date: '2024-01-01', title: "測試的標題測試的標題測試的標題", content: "...", type: 3},
   ]
+  const [newsVisible, setNewsVisible] = useState(false)
+  const [newsDetail, setNewsDetail] = useState<News | null>(null)
+  const showNewsDetail = (index: number) => {
+    setNewsDetail(news[index])
+    setNewsVisible(true)
+  }
+  const closeNewsDetail = () => {
+    setNewsVisible(false)
+  }
   return (
     <div className="max-w-full overflow-hidden bg-[url('/img/bg.png')] bg-fixed bg-top bg-no-repeat">
       <div className="fixed top-0 lef-0 z-30 w-full bg-gradient-to-b from-black to-transparent">
@@ -43,7 +61,7 @@ function App() {
           <img src="/img/girl01.png" className="hidden sm:block absolute sm:h-[400px] md:h-[700px] right-0 bottom-0 -mr-40 z-10" alt="" />
           <img src="/img/girl02.png" className="hidden sm:block absolute sm:h-[400px] md:h-[700px] left-0 bottom-0 z-10 -ml-24" alt="" />
           <div className="md:w-[800px] mx-auto p-4 sm:py-6 sm:px-12 bg-gradient-to-b from-black/70 to-transparent rounded-xl text-sm sm:text-lg sm:min-h-full relative z-10 text-slate-200">
-            {news.map((t, i)=> (<div key={i} className='flex border-b last-of-type:border-none border-b-slate-500 py-2'>
+            {news.map((t, i)=> (<div key={i} className='flex border-b last-of-type:border-none border-b-slate-500 py-2' onClick={() => showNewsDetail(i)}>
               <div className="md:w-40">【{typeMap[t.type]}】</div>
               <div className="truncate flex-1">{t.title}</div>
               <div className="md:w-48">{t.date}</div>
@@ -69,6 +87,38 @@ function App() {
       </div>
 
 
+
+    {newsVisible ? <>{/* The Modal */}
+  <div
+    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40"
+    onClick={closeNewsDetail}
+  >
+    {/* Modal content */}
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-lg w-full mx-4 animate__animated animate__fadeIn animate__faster" onClick={(e) => e.stopPropagation()}>
+      {/* Header */}
+      <div className="px-6 py-4 border-b border-gray-200">
+        {newsDetail ? <h2 className="text-xl font-semibold text-gray-800">【{typeMap[newsDetail.type]}】{newsDetail.title}</h2> : null}
+      </div>
+      {/* Body */}
+      <div className="p-6">
+        <p className="text-gray-600">
+          {newsDetail?.content}
+        </p>
+        <span className="block mt-4 text-sm text-gray-500">
+          Date: {newsDetail?.date}
+        </span>
+      </div>
+      {/* Footer */}
+      <div className="px-6 py-4 border-t border-gray-200 text-right">
+        <button
+          onClick={closeNewsDetail}
+          className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div></> : null}
 
 
 
